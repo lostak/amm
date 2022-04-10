@@ -10,19 +10,21 @@ starport s message create-pool tokenA:coin tokenB:coin shares:coin swapFee --mod
 ```
 
 ## Logic added
-`types/keys.go`:\n\t
-	- PoolIndex function \n\t\t
-		- Return the index of a pool given two tokens\n\t\t
-		- Return error if coins are of same denom\n\
-keeper/msg_server_create_pool.go\n\t
-	- CreatePool function\n\t\t
-		- get pool index using `PoolIndex`\n\t\t 
-		- check if pool exists\n\t\t
-		- validate tokens\n\t\t
-		- create pool\n\t\t
-		- set set pool at index using k.SetPool\n
-proto/ocean/pool.proto\n\t
-	- change pool's generated `index` to type string
+`types/keys.go`
+	* PoolIndex function 
+		* Return the index of a pool given two tokens
+		* Return error if coins are of same denom
+
+`keeper/msg_server_create_pool.go`
+	* CreatePool function
+		* get pool index using `PoolIndex`
+		* check if pool exists
+		* validate tokens
+		* create pool
+		* set set pool at index using `SetPool`
+
+`proto/ocean/pool.proto`
+	* change pool's generated `index` to type string
 	 
 ## Get started
 
