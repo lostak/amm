@@ -7,6 +7,22 @@ starport s module ocean --ibc --ordering ordered --dep account,bank,capability,d
 starport s map pool tokenA:coin tokenB:coin shares:coin swapFee --module ocean --no-message
 starport s message create-pool tokenA:coin tokenB:coin shares:coin swapFee --module ocean
 
+## Logic added
+types/keys.go:
+	- PoolIndex function 
+		- Return the index of a pool given two tokens
+		- Return error if coins are of same denom
+keeper/msg_server_create_pool.go
+	- CreatePool function
+		- get pool index using ^ 
+		- check if pool exists
+		- validate tokens
+		- create pool
+		- set set pool at index using k.SetPool
+
+proto/ocean/pool.proto
+	- change generated index to type string
+	 
 ## Get started
 
 ```
