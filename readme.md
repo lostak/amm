@@ -11,20 +11,23 @@ starport s message create-pool tokenA:coin tokenB:coin shares:coin swapFee --mod
 
 ## Logic added
 `types/keys.go`
-	* PoolIndex function 
-		* Return the index of a pool given two tokens
-		* Return error if coins are of same denom
+	
+* PoolIndex function 
+	* Return the index of a pool given two tokens
+	* Return error if coins are of same denom
 
 `keeper/msg_server_create_pool.go`
-	* CreatePool function
-		* get pool index using `PoolIndex`
-		* check if pool exists
-		* validate tokens
-		* create pool
-		* set set pool at index using `SetPool`
 
-`proto/ocean/pool.proto`
-	* change pool's generated `index` to type string
+* CreatePool function
+	* get pool index using `PoolIndex`
+	* check if pool exists
+	* validate tokens
+	* create pool
+	* set set pool at index using `SetPool`
+
+`proto/ocean/pool.proto
+
+* change pool's generated `index` to type string
 	 
 ## Get started
 
