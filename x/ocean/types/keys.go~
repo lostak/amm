@@ -3,8 +3,6 @@ package types
 import (
 	"fmt"
 	"strings"
-	"errors"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
@@ -40,18 +38,17 @@ func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
 
-func PoolIndex(tokenA sdk.Coin,tokenB sdk.Coin, ) (string, error) {
-
+func PoolIndex(tokenA sdk.Coin,tokenB sdk.Coin, ) string {
 	denomA := strings.ToUpper(tokenA.Denom)
 	denomB := strings.ToUpper(tokenB.Denom)
 
 	if denomA == denomB {
-		return "", errors.New("coins have same denoms")
+		return nil
 	}
 
 	if denomA > denomB {
-		return fmt.Sprintf("%s-%s", denomA, denomB, ), nil
+		return fmt.Sprintf("%s-%s", denomA, denomB, )
 	}
 
-	return fmt.Sprintf("%s-%s", denomB, denomA, ), nil
+	return fmt.Sprintf("%s-%s", denomB, denomA, )
 }

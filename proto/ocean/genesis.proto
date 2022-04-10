@@ -1,0 +1,17 @@
+syntax = "proto3";
+package lostak.amm.ocean;
+
+import "gogoproto/gogo.proto";
+import "ocean/params.proto";
+import "ocean/pool.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/lostak/amm/x/ocean/types";
+
+// GenesisState defines the ocean module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  string port_id = 2;
+  repeated Pool poolList = 3 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}

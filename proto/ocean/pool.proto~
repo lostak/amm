@@ -1,0 +1,16 @@
+syntax = "proto3";
+package lostak.amm.ocean;
+
+option go_package = "github.com/lostak/amm/x/ocean/types";
+import "gogoproto/gogo.proto"; 
+import "cosmos/base/v1beta1/coins.proto"; 
+
+message Pool {
+  string index = 1; 
+  cosmos.base.v1beta1.Coins tokenA = 2 [(gogoproto.nullable) = false]; 
+  cosmos.base.v1beta1.Coins tokenB = 3 [(gogoproto.nullable) = false]; 
+  cosmos.base.v1beta1.Coins shares = 4 [(gogoproto.nullable) = false]; 
+  string swapFee = 5; 
+  
+}
+
