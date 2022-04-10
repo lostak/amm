@@ -25,7 +25,7 @@ starport s message create-pool tokenA:coin tokenB:coin shares:coin swapFee --mod
 	* create pool
 	* set set pool at index using `SetPool`
 
-`proto/ocean/pool.proto
+`proto/ocean/pool.proto`
 
 * change pool's generated `index` to type string
 	 
